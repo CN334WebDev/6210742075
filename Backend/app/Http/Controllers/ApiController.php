@@ -45,9 +45,7 @@ class ApiController extends Controller
         $portfolios->save();
         return response()->json($portfolios);
 
-
     }
-
 
     /**
      * Display the specified resource.
@@ -58,7 +56,8 @@ class ApiController extends Controller
     public function show($id)
     {
         $portfolio = Portfolio::find($id);
-        return response()->json(['name' => 'show', 'id' => $id, 'portfolio' => $portfolio]);    }
+        return response()->json(['name' => 'show', 'id' => $id, 'portfolio' => $portfolio]);    
+    }
 
     /**
      * Update the specified resource in storage.
@@ -69,7 +68,24 @@ class ApiController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $portfolio = Portfolio::find($id);
+
+        $portfolio->name = $request->name;
+        $portfolio->age = $request->age;
+        $portfolio->gender = $request->gender;
+        $portfolio->email = $request->email;
+        $portfolio->phone_number = $request->phone_number;
+        $portfolio->address = $request->address;
+        $portfolio->nation = $request->nation;
+        $portfolio->photo = $request->photo;
+        $portfolio->gpa = $request->gpa;
+        $portfolio->about_me = $request->about_me;
+        $portfolio->skill = $request->skill;
+        $portfolio->project = $request->project;
+        $portfolio->viedolink = $request->viedolink;
+        $portfolio->experience = $request->experience;
+
+        return response()->json(['name' => 'update', 'status' => $portfolio->save(),  'payload' => $request->all(), 'id' => $id]);
     }
 
     /**
