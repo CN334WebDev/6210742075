@@ -18,7 +18,7 @@ import {
         return payload;
   
       case UPDATE_DATA:
-        return portfolio.map((pet) => {
+        return portfolio.map((portfolio) => {
           if (portfolio.id === payload.id) {
             return {
               ...portfolio,

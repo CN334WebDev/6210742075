@@ -1,7 +1,8 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
-import { retrieveData, deleteData } from "../redux_portfolio/actions";
+import { retrieveData, deleteData } from "./actions";
+import Table from 'react-bootstrap/Table'
 
 class PetList extends Component {
   componentDidMount() {
@@ -19,31 +20,31 @@ class PetList extends Component {
     const dataFetch = data.data
 
     return (
-      <div className="list row">
+      <div className="list row" >
         <div className="col-md-6">
-          <h4>Pet List</h4>
+          <h4>Data List</h4>
           <div>
             <Link to="/add-data">
-              <button className="button-primary">Add pet</button>
+              <button className="button-primary">Add data</button>
             </Link>
           </div>
-          <table className="u-full-width">
+          <Table striped bordered hover variant="dark" responsive="sm">
             <thead>
               <tr>
                 <th>Name</th>
                 <th>Age</th>
                 <th>Gender</th>
                 <th>Email</th>
-                <th>phone_number</th>
-                <th>address</th>
-                <th>nation</th>
-                <th>photo</th>
-                <th>gpa</th>
-                <th>about_me</th>
-                <th>skill</th>
-                <th>project</th>
-                <th>viedolink</th>
-                <th>experience</th>
+                <th>Phone Number</th>
+                <th>Address</th>
+                <th>Nation</th>
+                <th>Photo</th>
+                <th>Gpa</th>
+                <th>About Me</th>
+                <th>Skill</th>
+                <th>Project</th>
+                <th>Viedolink</th>
+                <th>Experience</th>
                 <th>Action</th>
 
               </tr>
@@ -60,7 +61,7 @@ class PetList extends Component {
                       <td>{phone_number}</td>
                       <td>{address}</td>
                       <td>{nation}</td>
-                      <img src={photo} alt="Girl in a jacket" width="100" height="100"/>
+                      <img src={photo} alt="Girl in a jacket" width="100" height="100" />
                       <td>{gpa}</td>
                       <td>{about_me}</td>
                       <td>{skill}</td>
@@ -68,16 +69,17 @@ class PetList extends Component {
                       <td>{viedolink}</td>
                       <td>{experience}</td>
                       <td>
-                        <button onClick={() => this.removePet(id)}>
+
+                        <button onClick={() => this.removePet(id)} className="btn btn-primary" type="submit">
                           Delete
                         </button>
                       </td>
-                      
+
                     </tr>
                   )
                 )}
             </tbody>
-          </table>
+          </Table>
         </div>
       </div>
     );

@@ -10,6 +10,7 @@ class PetsService {
   }
 
   create(data) {
+    console.log(data)
     return http.post("/api/portfolio", data);
   }
 

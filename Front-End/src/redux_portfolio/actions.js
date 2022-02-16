@@ -26,12 +26,13 @@ import {
           viedolink,
           experience
         });
+        
   
         dispatch({
           type: CREATE_DATA,
           payload: res.data,
         });
-  
+        console.log("In")
         return Promise.resolve(res.data);
       } catch (err) {
         return Promise.reject(err);
