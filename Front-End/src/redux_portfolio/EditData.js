@@ -1,9 +1,11 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { createData } from "../redux_portfolio/actions";
+import { updateData } from "../redux_portfolio/actions";
 import { Redirect } from "react-router-dom";
+import DataService from "./dataService";
 
-class AddData extends Component {
+
+class EditPet extends Component {
     constructor(props) {
         super(props);
         this.onChangeName = this.onChangeName.bind(this);
@@ -25,122 +27,221 @@ class AddData extends Component {
         this.saveData = this.saveData.bind(this);
 
         this.state = {
-            value: '',
-            name: "",
-            age: "",
-            gender: "",
-            email: "",
-            phone_number: "",
-            address: "",
-            nation: "",
-            photo: "",
-            gpa: "",
-            about_me: "",
-            skill: "",
-            project: "",
-            viedolink: "",
-            experience: "",
+            currentData: {
+                value: '',
+                name: "",
+                age: "",
+                gender: "",
+                email: "",
+                phone_number: "",
+                address: "",
+                nation: "",
+                photo: "",
+                gpa: "",
+                about_me: "",
+                skill: "",
+                project: "",
+                viedolink: "",
+                experience: "",
+            },
             redirect: false,
+
         };
     }
 
+    componentDidMount() {
+        this.getData(window.location.pathname.replace("/edit-data/", ""));
+    }
+
     onChangeName(e) {
-        this.setState({
-            name: e.target.value,
+        const name = e.target.value
+        this.setState(function (prevState) {
+            return {
+                currentData: {
+                    ...prevState.currentData,
+                    name: name,
+                },
+            };
         });
     }
 
     onChangeAge(e) {
-        this.setState({
-            age: e.target.value,
+        const age = e.target.value
+        this.setState(function (prevState) {
+            return {
+                currentData: {
+                    ...prevState.currentData,
+                    age: age,
+                },
+            };
         });
     }
 
     onChangeGender(e) {
-        this.setState({
-            gender: e.target.value,
+        const gender = e.target.value
+        this.setState(function (prevState) {
+            return {
+                currentData: {
+                    ...prevState.currentData,
+                    gender: gender,
+                },
+            };
         });
     }
 
     onChangeEmail(e) {
-        this.setState({
-            email: e.target.value,
+        const email = e.target.value
+        this.setState(function (prevState) {
+            return {
+                currentData: {
+                    ...prevState.currentData,
+                    email: email,
+                },
+            };
         });
     }
 
     onChangePhone_number(e) {
-        this.setState({
-            phone_number: e.target.value,
+        const phone = e.target.value
+        this.setState(function (prevState) {
+            return {
+                currentData: {
+                    ...prevState.currentData,
+                    phone: phone,
+                },
+            };
         });
     }
 
     onChangeAddress(e) {
-        this.setState({
-            address: e.target.value,
+        const address = e.target.value
+        this.setState(function (prevState) {
+            return {
+                currentData: {
+                    ...prevState.currentData,
+                    address: address,
+                },
+            };
         });
     }
 
     onChangeNation(e) {
-        this.setState({
-            nation: e.target.value,
+        const nation = e.target.value
+        this.setState(function (prevState) {
+            return {
+                currentData: {
+                    ...prevState.currentData,
+                    nation: nation,
+                },
+            };
         });
     }
 
     onChangePhoto(e) {
-        this.setState({
-            photo: e.target.value,
+        const photo = e.target.value
+        this.setState(function (prevState) {
+            return {
+                currentData: {
+                    ...prevState.currentData,
+                    photo: photo,
+                },
+            };
         });
     }
 
     onChangeGpa(e) {
-        this.setState({
-            gpa: e.target.value,
+        const gpa = e.target.value
+        this.setState(function (prevState) {
+            return {
+                currentData: {
+                    ...prevState.currentData,
+                    gpa: gpa,
+                },
+            };
         });
     }
 
     onChangeAbout_me(e) {
-        this.setState({
-            about_me: e.target.value,
+        const about_me = e.target.value
+        this.setState(function (prevState) {
+            return {
+                currentData: {
+                    ...prevState.currentData,
+                    about_me: about_me,
+                },
+            };
         });
     }
 
     onChangeSkill(e) {
-        this.setState({
-            skill: e.target.value,
+        const skill = e.target.value
+        this.setState(function (prevState) {
+            return {
+                currentData: {
+                    ...prevState.currentData,
+                    skill: skill,
+                },
+            };
         });
     }
 
     onChangeProject(e) {
-        this.setState({
-            project: e.target.value,
+        const project = e.target.value
+        this.setState(function (prevState) {
+            return {
+                currentData: {
+                    ...prevState.currentData,
+                    project: project,
+                },
+            };
         });
     }
 
     onChangeViedolink(e) {
-        this.setState({
-            viedolink: e.target.value,
+        const viedolink = e.target.value
+        this.setState(function (prevState) {
+            return {
+                currentData: {
+                    ...prevState.currentData,
+                    viedolink: viedolink,
+                },
+            };
         });
     }
 
     onChangeExperience(e) {
-        this.setState({
-            experience: e.target.value,
+        const experience = e.target.value
+        this.setState(function (prevState) {
+            return {
+                currentData: {
+                    ...prevState.currentData,
+                    experience: experience,
+                },
+            };
         });
     }
 
+    getData(id) {
+        DataService.get(id).then((response) => {
+            console.log(response.data)
+            this.setState({
+                currentData: response.data.portfolio,
+            });
+        });
+    }
 
     saveData() {
-        const { name, age, gender, email, phone_number, address, nation, photo, gpa, about_me, skill, project, viedolink, experience } = this.state;
-        this.props.createData(name, age, gender, email, phone_number, address, nation, photo, gpa, about_me, skill, project, viedolink, experience)
+        this.props
+            .updateData(this.state.currentData.id, this.state.currentData)
+
         this.setState({
             redirect: true,
         });
 
-        console.log("yes")
     }
 
     render() {
-
+        const { currentData } = this.state;
 
         if (this.state.redirect) {
             return <Redirect to="/" />;
@@ -155,8 +256,7 @@ class AddData extends Component {
                             type="text"
                             className="form-control"
                             id="name"
-
-                            value={this.state.name}
+                            value={currentData.name}
                             onChange={this.onChangeName}
                             name="name"
                         />
@@ -168,7 +268,7 @@ class AddData extends Component {
                             className="form-control"
                             id="Age"
 
-                            value={this.state.age}
+                            value={currentData.age}
                             onChange={this.onChangeAge}
                             name="Age"
                         />
@@ -180,7 +280,7 @@ class AddData extends Component {
                             className="form-control"
                             id="gender"
 
-                            value={this.state.gender}
+                            value={currentData.gender}
                             onChange={this.onChangeGender}
                             name="gender"
                         />
@@ -192,7 +292,7 @@ class AddData extends Component {
                             className="form-control"
                             id="email"
 
-                            value={this.state.email}
+                            value={currentData.email}
                             onChange={this.onChangeEmail}
                             name="email"
                         />
@@ -204,7 +304,7 @@ class AddData extends Component {
                             className="form-control"
                             id="phone_number"
 
-                            value={this.state.phone_number}
+                            value={currentData.phone_number}
                             onChange={this.onChangePhone_number}
                             name="phone_number"
                         />
@@ -216,7 +316,7 @@ class AddData extends Component {
                             className="form-control"
                             id="project"
 
-                            value={this.state.project}
+                            value={currentData.project}
                             onChange={this.onChangeProject}
                             name="project"
                         />
@@ -228,7 +328,7 @@ class AddData extends Component {
                             className="form-control"
                             id="photo"
 
-                            value={this.state.photo}
+                            value={currentData.photo}
                             onChange={this.onChangePhoto}
                             name="photo"
                         />
@@ -240,7 +340,7 @@ class AddData extends Component {
                             className="form-control"
                             id="about_me"
 
-                            value={this.state.about_me}
+                            value={currentData.about_me}
                             onChange={this.onChangeAbout_me}
                             name="about_me"
                         />
@@ -252,7 +352,7 @@ class AddData extends Component {
                             className="form-control"
                             id="address"
 
-                            value={this.state.address}
+                            value={currentData.address}
                             onChange={this.onChangeAddress}
                             name="address"
                         />
@@ -264,7 +364,7 @@ class AddData extends Component {
                             className="form-control"
                             id="nation"
 
-                            value={this.state.nation}
+                            value={currentData.nation}
                             onChange={this.onChangeNation}
                             name="nation"
                         />
@@ -276,7 +376,7 @@ class AddData extends Component {
                             className="form-control"
                             id="gpa"
 
-                            value={this.state.gpa}
+                            value={currentData.gpa}
                             onChange={this.onChangeGpa}
                             name="gpa"
                         />
@@ -288,7 +388,7 @@ class AddData extends Component {
                             className="form-control"
                             id="skill"
 
-                            value={this.state.skill}
+                            value={currentData.skill}
                             onChange={this.onChangeSkill}
                             name="skill"
                         />
@@ -300,7 +400,7 @@ class AddData extends Component {
                             className="form-control"
                             id="viedolink"
 
-                            value={this.state.viedolink}
+                            value={currentData.viedolink}
                             onChange={this.onChangeViedolink}
                             name="viedolink"
                         />
@@ -312,7 +412,7 @@ class AddData extends Component {
                             className="form-control"
                             id="viedolink"
 
-                            value={this.state.experience}
+                            value={currentData.experience}
                             onChange={this.onChangeExperience}
                             name="experience"
                         />
@@ -321,11 +421,10 @@ class AddData extends Component {
                     <button onClick={this.saveData} className="btn btn-success">
                         Submit
                     </button>
-
                 </div>
             </div>
         );
     }
 }
 
-export default connect(null, { createData })(AddData);
+export default connect(null, { updateData })(EditPet);

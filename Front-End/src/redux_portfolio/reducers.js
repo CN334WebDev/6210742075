@@ -7,7 +7,7 @@ import {
   
   const initialState = [];
   
-  function petReducer(portfolio = initialState, action) {
+  function dataReducer(portfolio = initialState, action) {
     const { type, payload } = action;
   
     switch (type) {
@@ -37,5 +37,5 @@ import {
     }
   }
   
-  export default petReducer;
+  export default dataReducer;
   

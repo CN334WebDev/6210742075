@@ -32,7 +32,7 @@ import {
           type: CREATE_DATA,
           payload: res.data,
         });
-        console.log("In")
+        console.log("Create")
         return Promise.resolve(res.data);
       } catch (err) {
         return Promise.reject(err);
@@ -60,7 +60,8 @@ import {
         type: UPDATE_DATA,
         payload: data,
       });
-  
+      console.log("Update")
+
       return Promise.resolve(res.data);
     } catch (err) {
       return Promise.reject(err);

@@ -5,9 +5,14 @@ import { retrieveData, deleteData } from "./actions";
 import Table from 'react-bootstrap/Table'
 
 class PetList extends Component {
+
   componentDidMount() {
     this.props.retrieveData();
   }
+
+
+
+
 
   removePet = (id) => {
     this.props.deleteData(id).then(() => {
@@ -46,7 +51,6 @@ class PetList extends Component {
                 <th>Viedolink</th>
                 <th>Experience</th>
                 <th>Action</th>
-
               </tr>
             </thead>
             <tbody>
@@ -61,7 +65,7 @@ class PetList extends Component {
                       <td>{phone_number}</td>
                       <td>{address}</td>
                       <td>{nation}</td>
-                      <img src={photo} alt="Girl in a jacket" width="100" height="100" />
+                      <td><img src={photo} width="100" height="100" /></td>
                       <td>{gpa}</td>
                       <td>{about_me}</td>
                       <td>{skill}</td>
@@ -73,6 +77,9 @@ class PetList extends Component {
                         <button onClick={() => this.removePet(id)} className="btn btn-primary" type="submit">
                           Delete
                         </button>
+                        <Link to={`/edit-data/${id}`}>
+                          <button className="btn btn-primary">Edit</button>
+                        </Link>
                       </td>
 
                     </tr>
