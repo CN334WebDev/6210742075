@@ -3,6 +3,7 @@ import {TOTAL_SCREEN, GET_SCREEN_INDEX} from '../../../utilities/commonUtils';
 import ScrollService from '../../../utilities/ScrollService';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faGithub } from '@fortawesome/free-brands-svg-icons'
+import { faBars } from '@fortawesome/free-solid-svg-icons'
 import './Header.css'
 
 function Header(props) {
@@ -24,7 +25,7 @@ function Header(props) {
             TOTAL_SCREEN.map((screen, i)=>(
                 <div key={screen.screen_name} className={getHeaderOptionsClass(i)}
                 onClick={()=>switchScreen(i, screen)}>
-                    <span>{screen.screen_name}</span>
+                    <span >{screen.screen_name}&nbsp;&nbsp;</span>
                 </div>
             ))
         )
@@ -32,12 +33,14 @@ function Header(props) {
 
     const getHeaderOptionsClass = (index) =>{
         let classes = 'header-option';
-        if(index < TOTAL_SCREEN.length -1)
+        if(index < TOTAL_SCREEN.length -1){
             classes += "header-option-seperator";
 
-        if(selectScreen === index)
+        }
+        if(selectScreen === index){
             classes += 'selected-header-option'
-        return;
+        }
+        return 
     }
 
 
@@ -59,7 +62,7 @@ function Header(props) {
             <div className='header-container' onClick={()=> setShowHeaderOptions(!showHeaderOptions)}>
                 <div className='header-parent'>
                     <div className='header-hamburger' onClick={()=>setShowHeaderOptions(!showHeaderOptions)}>
-                        <FontAwesomeIcon className='header-hamburger-bars' icon={faGithub }/>
+                        <FontAwesomeIcon className='header-hamburger-bars' icon={faBars }/>
                     </div>
                     <div className='header-logo' >
                         <span>Jirawat</span>

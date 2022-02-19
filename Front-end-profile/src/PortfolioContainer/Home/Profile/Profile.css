@@ -34,7 +34,7 @@
 }
 
 .highlighted-text{
-    color: var(--dark-orange);
+    color: #ff5823
 }
 
 .profile-role-tagline{
@@ -57,7 +57,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    box-shadow:  0 1px 0px 0px var(--white);
+    box-shadow:  0 1px 0px 0px white;
     border-radius: 50%;
     height: 380px;
     width: 380px;
