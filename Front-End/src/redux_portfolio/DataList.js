@@ -11,9 +11,6 @@ class PetList extends Component {
   }
 
 
-
-
-
   removePet = (id) => {
     this.props.deleteData(id).then(() => {
       this.props.retrieveData();
