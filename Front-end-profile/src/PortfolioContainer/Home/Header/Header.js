@@ -1,13 +1,33 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import {TOTAL_SCREEN, GET_SCREEN_INDEX} from '../../../utilities/commonUtils';
 import ScrollService from '../../../utilities/ScrollService';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBars } from '@fortawesome/free-solid-svg-icons'
+
+//redux stuff
+import { getData } from '../../../redux/actions/dataActions';
+import { useSelector, useDispatch } from 'react-redux'
+
 import './Header.css'
 
 function Header(props) {
+    
     const [selectScreen, setSelectScreen] = useState(0)
     const [showHeaderOptions, setShowHeaderOptions] = useState(false)
+    const [loading, setIsLoading] = useState(false)
+
+    const dispatch = useDispatch();
+    const dataApi = useSelector(state => state.data.data)
+
+    useEffect(() => {
+        const loadSpots = async () => {
+          setIsLoading(true);
+          await dispatch(getData());
+          setIsLoading(false);
+        };
+        loadSpots();
+      }, []);
+      
 
     const updateCurrentScreen = (currentScreen) =>{
         if(!currentScreen || !currentScreen.screenInView)
@@ -64,7 +84,9 @@ function Header(props) {
                         <FontAwesomeIcon className='header-hamburger-bars' icon={faBars }/>
                     </div>
                     <div className='header-logo' >
-                        <span>Jirawat</span>
+                        {dataApi.map((item, key)=>(
+                        <span key={key}>{item.name}</span>
+                        ))}
                     </div>
                     <div className={(showHeaderOptions)? "header-options show-hamburger-options": "header-options"}>
                         {getHeaderOptions()}
