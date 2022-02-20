@@ -13,7 +13,11 @@ function AboutMe(props) {
     ScrollService.currentScreenFadeIn.subscribe(fadeInScreenHandler);
 
   const SCREEN_CONSTANTS = {
-    description: "Test description asdas sad sad sad sad asd asd asd asd as d",
+    description: "     Interested in the position of a Software Engineer where I can contribute"+
+    "my analytical skills and knowledge acquired by pursuing my degree in"+
+    "Software Engineering. Looking for a dynamic and progressive company"+
+    "where my skills are utilized in the maximum way possible and seeking a"+
+    "challeneging internship.",
     highlights: {
       bullets: ["Fulltime handsome", "Sometime so cool", "Hungry some time", "1", "2", "3"],
       heading: "My Skill Hilight :",

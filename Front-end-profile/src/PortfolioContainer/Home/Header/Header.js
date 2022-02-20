@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import {TOTAL_SCREEN, GET_SCREEN_INDEX} from '../../../utilities/commonUtils';
 import ScrollService from '../../../utilities/ScrollService';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faGithub } from '@fortawesome/free-brands-svg-icons'
 import { faBars } from '@fortawesome/free-solid-svg-icons'
 import './Header.css'
 
