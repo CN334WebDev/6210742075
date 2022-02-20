@@ -1,12 +1,30 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from 'react';
 import ScreenHeading from "../../utilities/ScreenHeading/ScreenHeading";
 import ScrollService from "../../utilities/ScrollService";
 import Animation from "../../utilities/Animation";
+//redux stuff
+import { getDataSkill } from '../../redux/actions/dataActions';
+import { useSelector, useDispatch } from 'react-redux'
+
 import "./Resume.css";
 
 function Resume(props) {
     const [selectedBulletIndex, setSelectedBulletIndex] = useState(0);
     const [carousalOffSetStyle, setCarousalOffSetStyle] = useState({});
+    const [loading, setIsLoading] = useState(false)
+
+    const dispatch = useDispatch();
+    const dataApi = useSelector(state => state.data.dataSkill)
+
+    useEffect(() => {
+        const loadSpots = async () => {
+            setIsLoading(true);
+            await dispatch(getDataSkill());
+            setIsLoading(false);
+        };
+        loadSpots();
+    }, []);
+
 
     let fadeInScreenHandler = (screen) => {
         if (screen.fadeScreen !== props.id) return;
@@ -19,16 +37,15 @@ function Resume(props) {
         return (
             <div className="resume-heading">
                 <div className="resume-main-heading">
-                    <div className="heading-bullet">
-                        <span>{item.heading ? item.heading : ""}</span>
-                        {item.fromData && item.toDate ? (
-                            <div className="heading-date">
-                                {item.fromData + " " + item.toDate}
-                            </div>
-                        ) : (
-                            <div></div>
-                        )}
-                    </div>
+                    <div className="heading-bullet"></div>
+                    <span>{item.heading ? item.heading : ""}</span>
+                    {item.fromData && item.toDate ? (
+                        <div className="heading-date">
+                            {item.fromData + " " + item.toDate}
+                        </div>
+                    ) : (
+                        <div></div>
+                    )}
                     <div className="resume-sub-heading">
                         <span>{item.subHeading ? item.subHeading : ""}</span>
                     </div>
@@ -51,25 +68,34 @@ function Resume(props) {
     const programmingSkillDetails = [
         { skill: "JavaScript", ratingPercentage: 85 },
         { skill: "React JS", ratingPercentage: 85 },
-        { skill: "React native", ratingPercentage: 85 },
-        { skill: "a", ratingPercentage: 85 },
-        { skill: "a", ratingPercentage: 85 },
-        { skill: "React JS1", ratingPercentage: 85 },
-        { skill: "React native1", ratingPercentage: 85 },
-        { skill: "a2", ratingPercentage: 85 },
-        { skill: "a2", ratingPercentage: 85 },
+        { skill: "React Native", ratingPercentage: 85 },
+        { skill: "Python", ratingPercentage: 85 },
+        { skill: "Laravel", ratingPercentage: 85 },
+        { skill: "Java", ratingPercentage: 85 },
+        { skill: "HTML", ratingPercentage: 85 },
+        { skill: "Server Config", ratingPercentage: 85 },
     ];
 
     const projectDetails = [
         {
-            title: "Personal Portfolio Website",
+            title: "Covid-19 Application/Website",
             duration: { fromDate: "2/2022", toDate: "2/2022" },
-            description: "Test",
+            description: "Application covid-19 that use react and react-native framework",
         },
         {
-            title: "Personal Portfolio Website",
+            title: "KruChana Application",
             duration: { fromDate: "2/2022", toDate: "2/2022" },
-            description: "Test",
+            description: "Application covid-19 education that use react-native framework",
+        },
+        {
+            title: "Todo List Application",
+            duration: { fromDate: "2/2022", toDate: "2/2022" },
+            description: "Todo list mobile application that use react native and redux to build",
+        },
+        {
+            title: "Moc Application",
+            duration: { fromDate: "2/2022", toDate: "2/2022" },
+            description: "Moc Application that use react-native",
         },
     ];
 
@@ -83,21 +109,6 @@ function Resume(props) {
             />
         </div>,
         <div className="resume-screen-container" key="work-experience">
-            <ResumeHeading
-                heading={"Poom cyber Tech"}
-                subHeading={"No"}
-                fromData={"2019"}
-                toDate={"present"}
-            />
-            <div className="experience-description">
-                <span className="resume-description-text">study</span>
-            </div>
-            <div className="experience-description">
-                <span className="resume-description-text">study 2</span>
-                <span className="resume-description-text">study 3</span>
-                <span className="resume-description-text">study 3</span>
-                <span className="resume-description-text">study 3</span>
-            </div>
         </div>,
         <div
             className="resume-screen-container programming-skills-container"
@@ -106,13 +117,7 @@ function Resume(props) {
             {programmingSkillDetails.map((skill, index) => (
                 <div className="skill-parent" key={index}>
                     <div className="heading-bullet"></div>
-                    <span className="bullet-label">{skill.skill}</span>
-                    <div className="skill-percentage">
-                        <div
-                            style={{ width: skill.ratingPercentage + "%" }}
-                            className="active-percentage"
-                        ></div>
-                    </div>
+                    <span>{skill.skill}</span>
                 </div>
             ))}
         </div>,
@@ -122,17 +127,14 @@ function Resume(props) {
                     key={index}
                     heading={pd.title}
                     subHeading={pd.subHeading}
-                    description={pd.description}
-                    fromData={pd.duration.fromDate}
-                    toDate={pd.duration.toDate}
+                    description={pd.description}               
                 />
             ))}
-            <br />
-            <br />
         </div>,
         <div className="resume-screen-container" key="interests">
-            <ResumeHeading heading="Website Develop" description="Test" />
-            <ResumeHeading heading="Mobile Develop" description="Test" />
+            <ResumeHeading heading="Website Developer" description="I want to learn more about build a web" />
+            <ResumeHeading heading="Mobile Developer" description="I want to learn more about build a mobile application" />
+            <ResumeHeading heading="Blockchain Developer" description="I want to learn more about build a blockchain developer" />
         </div>,
     ];
 
@@ -171,87 +173,7 @@ function Resume(props) {
                 style={carousalOffSetStyle.style}
                 className="resume-details-carousal"
             >
-                {/* Education */}
-                <div className="resume-screen-container" key="education">
-                    <div >
-                        <div >
-                            <div >
-                                <span>Thammasat</span>
-                                <div >2019 2022</div>
-                            </div>
-                            <div >
-                                <span>Bachelor of engineer software engineer</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                {/* Work experience */}
-                <div className="resume-screen-container" key="work-experience">
-
-                </div>
-
-                {/* Skill */}
-                <div
-                    className="resume-screen-container programming-skills-container"
-                    key="programming-skills"
-                >
-                    {programmingSkillDetails.map((skill, index) => (
-                        <div className="skill-parent" key={index}>
-                            <div className="heading-bullet"></div>
-                            <span className="bullet-label">{skill.skill}</span>
-                            <div className="skill-percentage">
-                                <div
-                                    style={{ width: skill.ratingPercentage + "%" }}
-                                    className="active-percentage"
-                                ></div>
-                            </div>
-                        </div>
-                    ))}
-                </div>
-
-                {/* Project */}
-                <div className="resume-screen-container" key="projects">
-                    {projectDetails.map((pd, index) => (
-                     
-                        <div >
-                            <div >
-                                <div >
-                                    <span>{pd.title}</span>
-
-                                    <div >
-                                        {pd.duration.fromDate + " " + pd.duration.toDate}
-                                    </div>
-
-                                </div>
-                                <div >
-                                    <span>{pd.subHeading}</span>
-                                </div>
-                                <div>
-                                    <span>{pd.description}</span>
-                                </div>
-                            </div>
-                        </div>
-                    ))}
-                    <br />
-                    <br />
-                </div>
-
-                {/* Interast */}
-
-                <div className="resume-screen-container" key="interests">
-
-                    <div className="resume-heading">
-                        <div >
-                            <div >
-                                <span>Website Develop</span>
-                            </div>
-                            <div>
-                                <span>Test</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                {resumeDetail.map((ResumeDetail) => ResumeDetail)}
 
 
             </div>

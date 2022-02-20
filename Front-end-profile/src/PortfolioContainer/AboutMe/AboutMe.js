@@ -3,7 +3,7 @@ import ScreenHeading from "../../utilities/ScreenHeading/ScreenHeading";
 import ScrollService from "../../utilities/ScrollService";
 import Animation from "../../utilities/Animation";
 //redux stuff
-import { getData } from '../../redux/actions/dataActions';
+import { getDataSkill } from '../../redux/actions/dataActions';
 import { useSelector, useDispatch } from 'react-redux'
 
 import "./AboutMe.css";
@@ -13,12 +13,12 @@ function AboutMe(props) {
   const [loading, setIsLoading] = useState(false)
 
   const dispatch = useDispatch();
-  const dataApi = useSelector(state => state.data.data)
+  const dataApi = useSelector(state => state.data.dataSkill)
 
   useEffect(() => {
     const loadSpots = async () => {
       setIsLoading(true);
-      await dispatch(getData());
+      await dispatch(getDataSkill());
       setIsLoading(false);
     };
     loadSpots();
@@ -43,13 +43,14 @@ function AboutMe(props) {
     },
   };
 
-  const renderHighlight = () => {
-    return SCREEN_CONSTANTS.highlights.bullets.map((value, i) => (
-      <div className="highlight" key={i}>
-        <div className="highlight-blob"></div>
-        <span>{value}</span>
-      </div>
-    ));
+  const renderHighlight = (value, i) => {
+    return dataApi.map((item, index)=>(
+      <div className="highlight" key={index}>
+      <div className="highlight-blob"></div>
+      <span key={index}>{item}</span>
+    </div>
+    ))
+    
   };
 
   return (
@@ -66,7 +67,20 @@ function AboutMe(props) {
               <div className="highlight-heading">
                 <span>{SCREEN_CONSTANTS.highlights.heading}</span>
               </div>
-              {renderHighlight()}
+                {dataApi.map((item, index) => (
+                <div className="highlight" key={index}>
+                  <span key={index}>{item.skill}</span>
+                  <span key={index}>{item.skill1}</span>
+                  <span key={index}>{item.skill2}</span>
+                  <span key={index}>{item.skill3}</span>
+                  <span key={index}>{item.skill4}</span>
+                  <span key={index}>{item.skill5}</span>
+                  <span key={index}>{item.skill6}</span>
+                  <span key={index}>{item.skill7}</span>
+                  <span key={index}>{item.skill8}</span>
+                  <span key={index}>{item.skill9}</span>
+                </div>
+              ))}
             </div>
             <div className="about-me-options">
             <button className="btn primary-btn">
