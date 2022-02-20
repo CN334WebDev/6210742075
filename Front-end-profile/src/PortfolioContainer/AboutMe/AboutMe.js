@@ -1,10 +1,29 @@
-import React, { useEffect } from "react";
+import React, { useState, useEffect } from 'react';
 import ScreenHeading from "../../utilities/ScreenHeading/ScreenHeading";
 import ScrollService from "../../utilities/ScrollService";
 import Animation from "../../utilities/Animation";
+//redux stuff
+import { getData } from '../../redux/actions/dataActions';
+import { useSelector, useDispatch } from 'react-redux'
+
 import "./AboutMe.css";
 
 function AboutMe(props) {
+
+  const [loading, setIsLoading] = useState(false)
+
+  const dispatch = useDispatch();
+  const dataApi = useSelector(state => state.data.data)
+
+  useEffect(() => {
+    const loadSpots = async () => {
+      setIsLoading(true);
+      await dispatch(getData());
+      setIsLoading(false);
+    };
+    loadSpots();
+  }, []);
+
   let fadeInScreenHandler = (screen) => {
     if (screen.fadeScreen !== props.id) return;
     Animation.animation.fadeInScreen(props.id);
