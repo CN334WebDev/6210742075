@@ -59,7 +59,7 @@ body ::-webkit-scrollbar-thumb{
   color: aliceblue;
   border: 2px solid linen;
   font-size: 12px;
-  background-color: #1f2235;
+  background-color: #DD517F ;
 }
 
 .primary-btn:hover{
@@ -71,6 +71,6 @@ body ::-webkit-scrollbar-thumb{
 .highlighted-btn{
   color: white;
   font-size :12px;
-  background-color: #ff5823;
+  background-color: #E68E36;
 }
 

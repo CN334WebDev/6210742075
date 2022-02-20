@@ -5,6 +5,7 @@
     justify-content: center;
     height: 10%;
     min-height: fit-content;
+    
 }
 
 .profile-parent{
@@ -87,6 +88,10 @@
 
 .colz .colz-icon:hover{
     transform: scale(1.5);
+}
+
+.colorBut {
+    background-color: #E68E36;
 }
 
 @media screen and (max-width: 1110px) {
