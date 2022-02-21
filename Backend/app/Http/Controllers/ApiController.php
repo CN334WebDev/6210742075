@@ -97,5 +97,6 @@ class ApiController extends Controller
     public function destroy($id)
     {
         $portfolio = Portfolio::find($id);
-        return response()->json(['name' => 'destroy', 'status' => $portfolio->delete(), 'id' => $id]);    }
+        return response()->json(['name' => 'destroy', 'status' => $portfolio->delete(), 'id' => $id]);    
+    }
 }

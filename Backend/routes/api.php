@@ -19,3 +19,5 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 Route::resource('portfolio', 'App\Http\Controllers\ApiController');
 Route::resource('portfolioskill', 'App\Http\Controllers\ApiSkillController');
+Route::resource('project', 'App\Http\Controllers\ApiProjectController');
+
