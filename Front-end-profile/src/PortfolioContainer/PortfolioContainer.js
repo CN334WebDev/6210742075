@@ -1,6 +1,6 @@
 import React from 'react';
 import { TOTAL_SCREEN } from '../utilities/commonUtils';
-
+import './PortfolioContainer.css'
 function PortfolioContainer(props) {
 
     const mapAllScreens =()=>{

@@ -56,16 +56,16 @@ body ::-webkit-scrollbar-thumb{
 }
 
 .primary-btn{
-  color: aliceblue;
+  color: yellowgreen;
   border: 2px solid linen;
   font-size: 12px;
-  background-color: #DD517F ;
+  background-color: #1563BB ;
 }
 
 .primary-btn:hover{
   color: yellowgreen;
   border: 2px solid #ff5823;
-  background-color: #1f2235;
+  background-color: #E565B0;
 }
 
 .highlighted-btn{
@@ -73,4 +73,6 @@ body ::-webkit-scrollbar-thumb{
   font-size :12px;
   background-color: #E68E36;
 }
+
+
 

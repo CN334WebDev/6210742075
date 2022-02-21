@@ -6,6 +6,7 @@ import Card from '../../components/Cards/CardUI'
 import img1 from '../../assets/Home/artistic-retrowave-sunrise-vaporwave.jpg'
 import img2 from '../../assets/Home/5236169.jpg'
 import img3 from '../../assets/Home/bg.jpg'
+import './Testimonial.css'
 
 
 function Testimonial(props) {

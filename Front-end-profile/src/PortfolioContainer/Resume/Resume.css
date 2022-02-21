@@ -11,6 +11,14 @@
     display: flex;
     height: 360px;
     width: 1000px;
+    background-color: aliceblue;
+}
+.resume-card:hover{
+    display: flex;
+    height: 360px;
+    width: 1000px;
+    background-color: aliceblue;
+    box-shadow: 0 0px 20px -2px #5291D3;
 }
 
 .resume-bullets{
@@ -52,7 +60,7 @@
 .bullet{
     display: flex;
     align-items: center;
-    background-color: #1f2235;
+    background-color: #1563BB;
     height: 40px;
     margin: 15px 0;
     padding: 0 8px;
@@ -77,7 +85,7 @@
     width: 34px;
     height: 100%;
     z-index: 1;
-    background-color: #1f2235;
+    background-color: #1563BB;
     position: absolute;
 }
 
@@ -111,7 +119,7 @@
     height: 15px;
     width: 15px;
     top: 5px;
-    background-color: #ff5823;
+    background-color: #5291D3;
     border-radius: 50%;
 }
 
@@ -128,7 +136,7 @@
 }
 
 .heading-date{
-    background-color: #ff5823;
+    background-color: #E565B0;
     padding: 4px 12px;
     font-size: 14px;
     border-radius: 14px;
@@ -167,7 +175,7 @@
 .skill-parent span{
     font-family: "Poppin SemiBold";
     font-size: 16px;
-    color: #ff5823
+    color: black
 }
 
 .resume-screen-container-education{

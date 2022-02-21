@@ -35,7 +35,7 @@
 }
 
 .highlighted-text{
-    color: #ff5823
+    color: gold
 }
 
 .profile-role-tagline{
@@ -45,13 +45,31 @@
 }
 
 .profile-options .highlighted-btn{
-    margin: 0 0 0 28px
+    color: white;
+    margin: 0 0 0 28px;
+    border: 2px solid #1563BB;
+    font-size: 12px;
+    background-color: #1563BB ;
 }
 
 .profile-options .highlighted-btn:hover{
     margin: 0 0 0 28px;
-    background-color: cornsilk;
-    color: #111;
+    color: black;
+    border: 2px solid yellowgreen;
+    background-color: #5291D3;
+}
+
+.profile-options .primary-btn{
+  color: yellowgreen;
+  border: 2px solid linen;
+  font-size: 12px;
+  background-color: #331648 ;
+}
+
+.profile-options .primary-btn:hover{
+  color: white;
+  border: 2px solid yellowgreen;
+  background-color: #E565B0;
 }
 
 .profile-picture{

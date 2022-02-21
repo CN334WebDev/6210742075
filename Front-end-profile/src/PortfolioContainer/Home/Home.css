@@ -3,5 +3,7 @@
     flex-direction: column;
     justify-content: space-between;
     min-height: 670px;
-    background-image: url('../../assets/Home/artistic-retrowave-sunrise-vaporwave.jpg');
+    background-image: url('../../assets/Home/5236169.jpg');
+    background-repeat: no-repeat;
+    background-size: 100% auto;
 }

@@ -14,7 +14,14 @@
 .about-me-card{
     display: flex;
     width: 100%;
-    box-shadow: 0 0px 20px -2px #1f2235;
+    background-color: aliceblue;
+}
+
+.about-me-card:hover{
+    display: flex;
+    width: 100%;
+    box-shadow: 0 0px 20px -2px #5291D3;
+    background-color: aliceblue;
 }
 
 .about-me-profile{
@@ -69,6 +76,33 @@
 
 .about-me-options  .highlighted-btn{
     margin: 0 0 0 30px;
+}
+.about-me-options .highlighted-btn{
+  color: white;
+  margin: 0 0 0 28px;
+  border: 2px solid #1563BB;
+  font-size: 12px;
+  background-color: #1563BB ;
+}
+
+ .about-me-options .highlighted-btn:hover{
+  margin: 0 0 0 28px;
+  color: black;
+  border: 2px solid yellowgreen;
+  background-color: #5291D3;
+}
+
+.about-me-options .primary-btn{
+color: yellowgreen;
+border: 2px solid black;
+font-size: 12px;
+background-color: #331648 ;
+}
+
+.about-me-options .primary-btn:hover{
+color: white;
+border: 2px solid yellowgreen;
+background-color: #E565B0;
 }
 
 /*Ipad pro responsive*/
