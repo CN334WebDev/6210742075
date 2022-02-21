@@ -1,0 +1,21 @@
+.container-addData{
+    justify-content: center;
+    margin-left: 40%;
+    margin-right: 40%;
+    margin-top: 2%;
+    text-align: center;
+
+}
+
+.container-box1{
+    text-align: left;
+}
+
+.button-container{
+    text-align: center;
+    width: 100%;
+}
+.button-container button{
+    text-align: center;
+    width: 100%;
+}

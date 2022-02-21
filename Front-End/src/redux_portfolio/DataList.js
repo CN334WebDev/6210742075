@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 import { retrieveData, deleteData } from "./actions";
 import Table from 'react-bootstrap/Table'
+import './DataList.css'
 
 class PetList extends Component {
 
@@ -22,6 +23,7 @@ class PetList extends Component {
     const dataFetch = data.data
 
     return (
+      <div className="container">
       <div className="list row" >
         <div className="col-md-6">
           <h4>Data List</h4>
@@ -86,6 +88,8 @@ class PetList extends Component {
           </Table>
         </div>
       </div>
+      </div>
+
     );
   }
 }

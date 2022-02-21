@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 import { updateData } from "../redux_portfolio/actions";
 import { Redirect } from "react-router-dom";
 import DataService from "./dataService";
+import './AddData.css'
 
 
 class EditPet extends Component {
@@ -248,6 +249,9 @@ class EditPet extends Component {
         }
 
         return (
+            <div className="container-addData">
+            <h1>Edit Data</h1>
+            <div className="container-box1">
             <div className="submit-form">
                 <div>
                     <div className="form-group">
@@ -417,11 +421,15 @@ class EditPet extends Component {
                             name="experience"
                         />
                     </div>
-
+                    <div className="button-container">
                     <button onClick={this.saveData} className="btn btn-success">
                         Submit
                     </button>
+                    </div>
+
                 </div>
+            </div>
+            </div>
             </div>
         );
     }
