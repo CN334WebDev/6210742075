@@ -4,7 +4,7 @@ export const getData = () => async (dispatch) => {
 
     console.log("test get product data");
 
-    const url = "http://127.0.0.1:8000/api/portfolio";
+    const url = "https://pure-scrubland-43049.herokuapp.com/api/portfolio";
     
     await fetch(url)
         .then((res) => res.json())
@@ -19,7 +19,7 @@ export const getDataSkill = () => async (dispatch) => {
 
     console.log("test get product data Skill");
 
-    const url = "http://127.0.0.1:8000/api/portfolioskill";
+    const url = "https://pure-scrubland-43049.herokuapp.com/api/portfolioskill";
     
     await fetch(url)
         .then((res) => res.json())
@@ -34,7 +34,7 @@ export const getDataProject = () => async (dispatch) => {
 
     console.log("test get product data Project");
 
-    const url = "http://127.0.0.1:8000/api/project";
+    const url = "https://pure-scrubland-43049.herokuapp.com/api/project";
     
     await fetch(url)
         .then((res) => res.json())
