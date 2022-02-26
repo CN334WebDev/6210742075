@@ -105,6 +105,7 @@
 .resume-heading{
     display: flex;
     flex-direction: column;
+    margin-right: 8%;
 }
 
 .resume-main-heading{
@@ -116,8 +117,8 @@
 .heading-bullet{
     position: absolute;
     left: -30px;
-    height: 15px;
-    width: 15px;
+    height: 10px;
+    width: 10px;
     top: 5px;
     background-color: #5291D3;
     border-radius: 50%;
@@ -131,8 +132,9 @@
 }
 
 .resume-heading-description{
-    font-size: 12px;
+    font-size: 13px;
     text-align: justify;
+    margin-top: 2px;
 }
 
 .heading-date{

@@ -11,10 +11,12 @@ function CardUI(props) {
                 <h4 className='card-title'>
                     {props.title}
                 </h4>
-                <p>
+                <p className='description'>
                     {props.description}
                 </p>
-                <a href="#" className='btn btn-outline-success'>{props.btn}</a>
+            </div>
+            <div className='button-git'>
+                <a href={props.git} className='button-color'>{props.btn}</a>
             </div>
         </div>
     );

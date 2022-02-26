@@ -32,6 +32,7 @@ class ApiProjectController extends Controller
         $portfolioProject->title = $request->input('title');
         $portfolioProject->description = $request->input('description');
         $portfolioProject->url = $request->input('url');
+        $portfolioProject->git = $request->input('git');
 
         $portfolioProject->save();
         return response()->json($portfolioProject);
@@ -65,6 +66,7 @@ class ApiProjectController extends Controller
         $portfolioProject->title = $request->title;
         $portfolioProject->description = $request->description;
         $portfolioProject->url = $request->url;
+        $portfolioProject->git = $request->git;
 
         return response()->json(['name' => 'update', 'status' => $portfolioProject->save(),  'payload' => $request->all(), 'id' => $id]);
     }

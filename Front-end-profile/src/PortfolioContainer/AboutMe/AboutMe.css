@@ -35,7 +35,7 @@
 .about-me-details{
     width: 48%;
     text-align: justify;
-    padding: 30px;
+    padding: 20px;
 }
 
 .about-me-descryption{
@@ -44,13 +44,31 @@
 }
 
 .about-me-highlights{
-    margin: 40px 0;
+    margin: 40px 10px;
 }
 
 .highlight-heading{
     font-family: 'Poppins Bold';
-    font-size: 20px;
-    margin: 0 0 20px 0;
+    font-size: 23px;
+    margin: 0 0 10px 0;
+}
+
+.heading-bullet{
+    position: absolute;
+    left: -30px;
+    height: 10px;
+    width: 10px;
+    top: 5px;
+    background-color: #5291D3;
+    border-radius: 50%;
+}
+
+.bullet-icons{
+    width: 34px;
+    height: 100%;
+    z-index: 1;
+    background-color: #1563BB;
+    position: absolute;
 }
 
 .highlight{

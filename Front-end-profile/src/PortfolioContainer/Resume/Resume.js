@@ -78,7 +78,7 @@ function Resume(props) {
 
     const projectDetails = [
         {
-            title: "Covid-19 Application/Website",
+            title: "Covid-19 Application",
             duration: { fromDate: "2/2022", toDate: "2/2022" },
             description: "Application covid-19 that use react and react-native framework",
         },
@@ -95,7 +95,7 @@ function Resume(props) {
         {
             title: "Moc Application",
             duration: { fromDate: "2/2022", toDate: "2/2022" },
-            description: "Moc Application that use react-native",
+            description: "Moc Application that use react-native and Redux to build Application",
         },
     ];
 
@@ -103,7 +103,7 @@ function Resume(props) {
         <div className="resume-screen-container" key="education">
             <ResumeHeading
                 heading={"Thammasat"}
-                subHeading={"Bachelor of engineer software engineer"}
+                description={"Bachelor of engineer software engineer"}
                 fromData={"2019"}
                 toDate={"2022"}
             />
@@ -132,7 +132,7 @@ function Resume(props) {
             ))}
         </div>,
         <div className="resume-screen-container" key="interests">
-            <ResumeHeading heading="Website Developer" description="I want to learn more about build a web" />
+            <ResumeHeading heading="Website Developer" description="I want to learn more about build a website application" />
             <ResumeHeading heading="Mobile Developer" description="I want to learn more about build a mobile application" />
             <ResumeHeading heading="Blockchain Developer" description="I want to learn more about build a blockchain developer" />
         </div>,

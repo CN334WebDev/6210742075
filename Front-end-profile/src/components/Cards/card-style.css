@@ -3,10 +3,48 @@ body{
 }
 .card{
     width:20rem;
+    height: 22rem;
 }
 
 .card:hover{
     box-shadow:  0 0px 20px -2px #5291D3!important;
+}
+.button-git{
+    justify-content: center;
+    margin-top: auto;
+    margin-bottom: 2%;
+}
+
+.button-color{
+    background-color: #E565B0; /* Green */
+    border: none;
+    color: white;
+    padding: 10px 25px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    border-radius: 10%;
+}
+
+.button-color:hover{
+    background-color: #5291D3; /* Green */
+    border: none;
+    color: black;
+    padding: 10px 25px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    border-radius: 10%;
+}
+
+.description{
+    margin-left: 15px;
+    margin-right: 15px;
+}
+.card-title{
+    margin-top: 10px;
 }
 
 .card-body{

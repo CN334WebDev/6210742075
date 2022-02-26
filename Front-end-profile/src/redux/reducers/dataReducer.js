@@ -1,8 +1,9 @@
-import { API_DATA, API_DATA_SKILL } from '../types'
+import { API_DATA, API_DATA_SKILL, API_DATA_PROJECT } from '../types'
 
 const initialState = {
     data: [],
-    dataSkill: []
+    dataSkill: [],
+    dataProject: []
 };
 
 export default function (state = initialState, action) {
@@ -16,6 +17,11 @@ export default function (state = initialState, action) {
             return {
                 ...state,
                 dataSkill: [...action.payload],
+            }
+        case API_DATA_PROJECT:
+            return {
+                ...state,
+                dataProject: [...action.payload],
             }
 
         default:

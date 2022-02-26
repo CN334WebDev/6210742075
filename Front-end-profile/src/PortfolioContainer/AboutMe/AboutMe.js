@@ -68,7 +68,7 @@ function AboutMe(props) {
                 <span>{SCREEN_CONSTANTS.highlights.heading}</span>
               </div>
                 {dataApi.map((item, index) => (
-                <div className="highlight" key={index}>
+                  <div className="highlight" key={index}>
                   <span key={index}>{item.skill}</span>
                   <span key={index}>{item.skill1}</span>
                   <span key={index}>{item.skill2}</span>

@@ -1,4 +1,4 @@
-import { API_DATA, API_DATA_SKILL } from "../types";
+import { API_DATA, API_DATA_SKILL, API_DATA_PROJECT } from "../types";
 
 export const getData = () => async (dispatch) => {
 
@@ -26,6 +26,21 @@ export const getDataSkill = () => async (dispatch) => {
         .then((result) => {
             console.log(result.data)
             dispatch({ type: API_DATA_SKILL, payload: result.data });
+        })
+        .catch(console.error());
+};
+
+export const getDataProject = () => async (dispatch) => {
+
+    console.log("test get product data Project");
+
+    const url = "http://127.0.0.1:8000/api/project";
+    
+    await fetch(url)
+        .then((res) => res.json())
+        .then((result) => {
+            console.log(result.data)
+            dispatch({ type: API_DATA_PROJECT, payload: result.data });
         })
         .catch(console.error());
 };
